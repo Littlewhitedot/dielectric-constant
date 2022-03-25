@@ -8,7 +8,7 @@ import sys
 # 主窗体
 top = tkinter.Tk(className='Epsilon calculation', )
 
-# 定义窗体大小及位置，860*450像素
+# 定义窗体大小及位置
 width = 650
 height = 240
 screenwidth = top.winfo_screenwidth()
@@ -22,9 +22,8 @@ label['text'] = 'made by Z in TianJi, GuangZhou'
 label.place(y=210, x=225)
 
 
-# 计算k值
+# 计算k值的函数
 def calculation(thickness, diameter, frequency):
-    # 判断输入变量
     # parameters
     T = thickness
     t = T * 1e-3
@@ -178,6 +177,7 @@ def save_action():
     return sequence, thickness, diameter, frequence, epslion
 
 
+# 定义按钮‘连续计算’的功能
 def continue_click():
     numbers = continue_action()
     workbook = openpyxl.load_workbook('database.xlsx')
@@ -188,6 +188,7 @@ def continue_click():
     outcome['text'] = '共计算{0}组数据，并存入excel'.format(numbers)
 
 
+# 实现连续计算
 def continue_action():
     workbook = openpyxl.load_workbook('database.xlsx')
     sheet = workbook.active
